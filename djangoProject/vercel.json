@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "global": "^4.4.0",
+    "vercel": "^28.5.6"
+  },
+
+      "builds": [{
+        "src": "djangoProject/wsgi.py",
+        "use": "@ardnt/vercel-python-wsgi",
+        "config": { "maxLambdaSize": "15mb" }
+    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "djangoProject/wsgi.py"
+        }
+    ]
+}
+
+
+
