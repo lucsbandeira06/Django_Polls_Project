@@ -1,0 +1,24 @@
+<!-- templates/index.html -->
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  <p> Welcome, {{ user.username }}!</p>
+    <br>
+    <ul>
+  <p><a href="{% url 'polls:index' %}" class="btn btn-primary">Polls</a></p>
+  <p><a href="{% url 'logout' %}" class="btn btn-secondary">Log Out</a></p>
+  <p><a href="{% url 'password_reset' %}" class="btn btn-primary">Reset Password</a></p>
+    </ul>
+{% else %}
+    <ul>
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}" class="btn btn-primary">Log In</a>
+  <br>
+  <br>
+  <a href="{% url 'signup' %}" class="btn btn-primary">Create a New Account</a>
+    </ul>
+{% endif %}
+{% endblock %}

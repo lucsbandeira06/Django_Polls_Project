@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import os
 from pathlib import Path
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-b25l^4%mt61x-_od-1gw%0pgt*o!qf14ypz8c8ep@a+f3cse@1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app'] # Allow *.vercel.app
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.vercel.app', '.now.sh'] # Allow *.vercel.app
 
 
 # Application definition
@@ -84,6 +85,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'Lucas6705229',
         'HOST': 'localhost',
+        'PORT': '3306'
     }
 }
 
@@ -133,3 +135,5 @@ LOGIN_REDIRECT_URL = "home"  # new
 LOGOUT_REDIRECT_URL = "home"  # new
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"  # new
 EMAIL_FILE_PATH = BASE_DIR / "sent_emails"  # new
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
