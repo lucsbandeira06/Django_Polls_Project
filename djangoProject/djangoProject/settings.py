@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.vercel.app', '.now.sh'] # Allow *.v
 
 # Application definition
 
+# All the apps installed in the project
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
     'django.contrib.admin',
@@ -57,6 +58,7 @@ ROOT_URLCONF = 'djangoProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # First directory the application will search for files to be rendered.
         'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -75,9 +77,9 @@ WSGI_APPLICATION = 'djangoProject.wsgi.application'
 
 
 
-# Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# MySQL database credentials.
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',

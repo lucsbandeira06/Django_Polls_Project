@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views.generic.base import TemplateView
 
-
+# main application paths
 urlpatterns = [
     path('polls/', include('polls.urls'), name="polls"),
     path("accounts/", include("accounts.urls")),
