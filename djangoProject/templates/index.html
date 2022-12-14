@@ -3,7 +3,13 @@
 
 {% block title %}Home{% endblock %}
 
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+
+<body>
 {% block content %}
+
 {% if user.is_authenticated %}
   <p> Welcome, {{ user.username }}!</p>
     <br>
@@ -21,4 +27,6 @@
   <a href="{% url 'signup' %}" class="btn btn-primary">Create a New Account</a>
     </ul>
 {% endif %}
+
 {% endblock %}
+  </body>

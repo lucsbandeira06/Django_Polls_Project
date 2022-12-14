@@ -137,5 +137,5 @@ LOGIN_REDIRECT_URL = "home"  # new
 LOGOUT_REDIRECT_URL = "home"  # new
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"  # new
 EMAIL_FILE_PATH = BASE_DIR / "sent_emails"  # new
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+STATICFILES_DIRS = os.path.join(BASE_DIR, '../static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', '../static')
