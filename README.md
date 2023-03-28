@@ -5,6 +5,7 @@
 ### CA3 - Back End development ###
 
 On the third part of this continuous assessment, I wil be implementing testing functions and anti-hacking measures in this application, as well as, testing user authentication, question object creation, and other features within this Django project. The modifications applied to this project are mainly in the files: "djangoProject/settings.py" and "polls/tests.py"
+
 Another modifications can also be found on the html files. The {% csrf_token %} was implemented in all the forms of this application to ensure no data would be leaked.
 
 As mentioned in the previous parts of this assessment, the main application djangoProject contains the settings of the whole application. It is the parent application for accounts and polls mini applications. By importing the method "makepassword" from django.contrib.auth.hashers, it is possible to compare the secret password with the user password right after its entered.
