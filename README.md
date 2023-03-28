@@ -1,6 +1,39 @@
-# Polls/Accounts Django Project #
+# Polls/Accounts/Testing Django Project #
 ## Lucas Bandeira ##
 ### Student ID: 23884 ####
+
+### CA3 - Back End development ###
+
+On the third part of this continuous assessment, I wil be implementing testing functions and anti-hacking measures in this application, as well as, testing user authentication, question object creation, and other features within this Django project. The modifications applied to this project are mainly in the files: "djangoProject/settings.py" and "polls/tests.py"
+Another modifications can also be found on the html files. The {% csrf_token %} was implemented in all the forms of this application to ensure no data would be leaked.
+
+As mentioned in the previous parts of this assessment, the main application djangoProject contains the settings of the whole application. It is the parent application for accounts and polls mini applications. By importing the method "makepassword" from django.contrib.auth.hashers, it is possible to compare the secret password with the user password right after its entered.
+CSP is another anti-hacking measure that was implemented on this application. That way we can define the IP addresses that can host the application, reducing the chances your application can be hacked. 
+
+The IP addresses that can access this application after you run the server are shown on setting.py:
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_STYLE_SRC = ("'self'", "http://127.0.0.1:8080")
+CSP_SCRIPT_SRC = ("'self'", "http://127.0.0.1:8080")
+
+On the testing side of this application, I tested all the features included in this project. Features such as, user authentication, creation of question objects, questions in the future will not display, and more.
+
+
+You can find a little comment on every function on the tests.py file. I set two functions to fail, just to ensure the logic behind the other tests was accurate. It is interesting to see how the application behaves while using test data. By putting this application through test, I was able to understand how each function behaved within the application.
+- When running the tests created by entering the command line: python manage.py tests:
+
+Tests test_choice_votes(self) and test_future_question(self) should fail. On the first test case, the value defined for choice1 is not the same as the one being tested. On the second test case, instead
+        of using port 404 to pass the message, port 200 should have been applied to pass the question response. This information can be found after entering the command line mentioned above.
+
+### References CA3 ###
+
+SSL Redirect: https://docs.djangoproject.com/en/4.0/ref/settings/#std:setting-SECURE_SSL_REDIRECT
+
+Django overview - Writing tests:
+https://docs.djangoproject.com/en/4.1/topics/testing/overview/#writing-tests
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/web_application_security
+
+Setting tests up and running it: 
+https://www.youtube.com/watch?v=0MrgsYswT1c
 
 ### CA1 - Back End development ###
 
@@ -52,4 +85,5 @@ Make sure to have these two url paths included in your main project urls.py file
   path("accounts/", include("accounts.urls")),
   path("accounts/", include("django.contrib.auth.urls")),
   
-After this step, whenever a new user is created, his data is stored in the local host. You would be able to switch from one account to another account with no problems. What is interesting about this app is that now I can implement a condition on the polls application created for CA1. By limiting the number of votes per user in each question, the application would be able to count votes more accurately.
+After this step, whenever a new user is created, his data is stored in the local host. You would be able to switch from one account to another account with no problems. What is interesting about this app is that now I can implement a condition on the polls application created for CA1.
+By limiting the number of votes per user in each question, the application would be able to count votes more accurately.
