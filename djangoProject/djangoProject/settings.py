@@ -11,6 +11,14 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
+from django.contrib.auth.hashers import make_password
+
+"""
+Security method to hide password.
+"""
+password = 'mysecretpassword'
+hashed_password = make_password(password)
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -52,6 +60,14 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+"""
+Alternatively, you can define the number of IP address that can access your application, to ensure there won't be
+any attackers.
+"""
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_STYLE_SRC = ("'self'", "http://127.0.0.1:8080")
+CSP_SCRIPT_SRC = ("'self'", "http://127.0.0.1:8080")
 
 ROOT_URLCONF = 'djangoProject.urls'
 
@@ -137,5 +153,5 @@ LOGIN_REDIRECT_URL = "home"  # new
 LOGOUT_REDIRECT_URL = "home"  # new
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"  # new
 EMAIL_FILE_PATH = BASE_DIR / "sent_emails"  # new
-STATICFILES_DIRS = os.path.join(BASE_DIR, '../static'),
+STATICFILES_DIRS = os.path.join(BASE_DIR, '../polls/static'),
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', '../static')

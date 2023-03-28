@@ -3,10 +3,12 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<h2>Log In</h2>
+<div style="background-color: grey; height: 20%; width: 20%; text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
+<h2 style="font-size: 20px ; font-weight: bold">Log In</h2>
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit">Log In</button>
+  <button type="submit" style="margin-top: 10px; height: 40px; font-size: 20px">Log In</button>
 </form>
+  </div>
 {% endblock %}

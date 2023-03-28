@@ -4,10 +4,12 @@
 {% block title %}Sign Up{% endblock %}
 
 {% block content %}
-  <h2>Sign up</h2>
+<div style="background-color: grey; text-align: center">
+  <h2 style="font-size: 32px ; font-weight: bold; padding: 10px">Sign up</h2>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Sign Up</button>
+    <button type="submit" style="margin-top: 10px; height: 40px; font-size: 20px">Sign Up</button>
   </form>
+</div>
 {% endblock %}

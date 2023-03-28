@@ -11,22 +11,28 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-  <p> Welcome, {{ user.username }}!</p>
+{% csrf_token %}
+<div style="text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
+  <p style="font-size: 20px ; font-weight: bold"> Welcome, {{ user.username }}!</p>
     <br>
     <ul>
   <p><a href="{% url 'polls:index' %}" class="btn btn-primary">Polls</a></p>
   <p><a href="{% url 'logout' %}" class="btn btn-secondary">Log Out</a></p>
   <p><a href="{% url 'password_reset' %}" class="btn btn-primary">Reset Password</a></p>
     </ul>
+  </div>
 {% else %}
+<div style="text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
     <ul>
-  <p>You are not logged in</p>
+  <p style="font-size: 20px ; font-weight: bold">You are not logged in</p>
   <a href="{% url 'login' %}" class="btn btn-primary">Log In</a>
   <br>
   <br>
   <a href="{% url 'signup' %}" class="btn btn-primary">Create a New Account</a>
     </ul>
+  </div>
 {% endif %}
+
 
 {% endblock %}
   </body>
